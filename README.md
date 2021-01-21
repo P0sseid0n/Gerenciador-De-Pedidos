@@ -6,16 +6,16 @@
 <br>
 
 ## Índice
-* [Midia](#midia)
-* [Tecnologias](#tecnologias)
-* [Como usar](#como-usar) 
+* [Midia](#-midia)
+* [Tecnologias](#-tecnologias)
+* [Como usar](#-como-usar) 
 
 <br><br>
 
 ## 📷 Midia
 
-![Imagem](Pedidos.gif)
 ![Imagem](Pedidos.png)
+![GIF](Pedidos.gif)
 
 <br><br>
 
