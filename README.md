@@ -14,8 +14,8 @@
 
 ## 📷 Midia
 
-![Imagem](./pedidos.gif)
-![Imagem](./pedidos.png)
+![Imagem](Pedidos.gif)
+![Imagem](Pedidos.png)
 
 <br><br>
 
