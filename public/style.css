@@ -1,0 +1,71 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    box-sizing: border-box;
+}
+
+html, body{
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgb(245,245,245);
+}
+
+body > header{
+    background-color: #E5383B;
+
+    color: white;
+    font-size: 20px;
+
+    padding: 8px 32px;
+
+    margin-bottom: 8px;
+}
+
+body > header .container{
+    max-width: 1280px;
+}
+
+.container{
+    max-width: 1024px;
+    padding: 0 4%;
+    margin: 0 auto;
+}
+
+.pedido{
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 16px;
+    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.2);
+    margin: 16px 0;
+}
+
+.pedido header{
+    background-color: #BA181B;
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+    color: white;
+    padding: 4px 16px;
+}
+
+.pedido main{
+    padding: 8px 16px;
+}
+
+.pedido footer{
+    text-align: right;
+    padding: 8px 0;
+    padding-right: 16px;
+}
+
+.pedido footer button{
+    background-color: rgb(0, 0, 160);
+    color: white;
+    border-radius: 16px;
+    border: 1px solid rgb(220, 220, 220);
+    font-weight: 700;
+    font-size: 16px;
+    padding: 8px 16px;
+    cursor: pointer;
+    outline: 0;
+}

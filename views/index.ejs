@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Pedidos</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <% pedidos.forEach(pedido => { %>
+                <div class="pedido" id="<%= pedido.id %>">
+                    <header>
+                        <h1> #<%= pedido.id %> <%= pedido.pedido %> </h1>
+                        <p> <%= pedido.nota %>  </p>
+                    </header>
+                    <main>
+                        <h4>Nome: <%= pedido.nome %></h4>
+                        <h4>CEP: <%= pedido.CEP %></h4>
+                        <h4>Endereço: <%= pedido.endereco %></h4>
+                        <h5><%= pedido.referencia %> </h5>
+                    </main>
+                    <footer>
+                        <button value="<%= pedido.id %>" > Concluir pedido </button>
+                    </footer>
+                </div>
+            <% }) %>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.5/socket.io.js"></script>
+    <script>
+        window.onload = () => {
+            const socket = io()
+    
+            const container = document.querySelector('main .container')
+            socket.on('render', pedido => {
+                const div = document.createElement('div')
+                div.id = pedido.id
+                div.classList += 'pedido'
+                div.innerHTML = `
+                    <header>
+                        <h1> #${pedido.id}  ${pedido.pedido} </h1>
+                        <p> ${pedido.nota} </p>
+                    </header>
+                    <main>
+                        <h4>Nome: ${pedido.nome} </h4>
+                        <h4>CEP: ${pedido.CEP}</h4>
+                        <h4>Endereço: ${pedido.endereco}</h4>
+                        <h5> ${pedido.referencia} </h5>
+                    </main>
+                    <footer>
+                        <button value="${pedido.id}"> Concluir pedido </button>
+                    </footer>
+                `
+
+                document.querySelector('main .container').appendChild(div)
+
+                Add()
+            })
+
+            function Add () {
+                document.querySelectorAll('.pedido button').forEach(button => {
+                    button.addEventListener('click', async (e) => {
+                        try{
+                            await fetch('/', { 
+                                method: 'DELETE',
+                                headers: {
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({ id: Number(e.target.value) }) 
+                            })
+
+                            document.getElementById(e.target.value).remove()
+                            
+                        } catch (err){
+                            console.error(err)
+                        }
+                    })
+                })
+            }
+
+            Add()
+
+        }
+    </script>
+</body>
+</html>
